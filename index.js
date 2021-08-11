@@ -109,7 +109,7 @@ bot.on('message', async (message) =>{
               if(arg.startsWith("http")){
                 hug(arg, message.channel, "hug ", addemoji,"avatar")
               }else{
-                if(arg.startsWith("<:" || arg.startsWith(":"))){
+                if(arg.startsWith("<:") || arg.startsWith(":") || arg.startsWith("<a:")){
                   try{
                     var emojim = arg.replace("<", "").replace(":", "").replace(":", "").replace(">", "")
                     emojim = arg.replace("<", "").replace(":", "").replace(":", "").replace(">", "").replace(/[A-Z]/g, '').replace(/[a-z]/g, '')
