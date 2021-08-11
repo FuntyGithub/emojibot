@@ -98,8 +98,8 @@ bot.on('message', async (message) =>{
             }
           }else{
             //by ping
-            if(arg.startsWith("<@!")){
-              var userid = arg.replace("<@!", "").replace(">", "")
+            if(arg.startsWith("<@")){
+              var userid = arg.replace("<@", "").replace(">", "").replace("!", "")
               bot.users.fetch(userid).then(async (user) => {
                 hug(user.displayAvatarURL({ format: 'png' }), message.channel, "hug "+user.username, addemoji,"avatar")
               }).catch((error) =>{
@@ -146,23 +146,25 @@ bot.on('message', async (message) =>{
   async function hug(url, channel, name, addemoji, type) {
     try {
       var attachment = null;
-      const canvas = Canvas.createCanvas(112, 112)
-      const context = canvas.getContext("2d")
-      if(type === "avatar"){
-        const layer1 = await Canvas.loadImage(url)
-        context.drawImage(layer1, 1, 45, 64, 64)
-        var layer2 = await Canvas.loadImage("https://cdn.discordapp.com/attachments/820584809612443659/863442209617608714/PEPEHUGGY.png")
-      }
-      if(type === "mc"){
-        const layer1 = await Canvas.loadImage(url)
-        context.drawImage(layer1, 5, 18, 64, 144)
-        var layer2 = await Canvas.loadImage("https://cdn.discordapp.com/attachments/820584809612443659/872145012996046898/PEPEHUGGY_SKIN.png")
-      }
-      if(type === "emoji"){
-        context.font = '50px serif'
-        context.textAlign = "center"; 
-        context.fillText(url, 44, 88, 64)
-        var layer2 = await Canvas.loadImage("https://cdn.discordapp.com/attachments/820584809612443659/872145012996046898/PEPEHUGGY.png")
+      var canvas = Canvas.createCanvas(112, 112)
+      var context = canvas.getContext("2d")
+      switch (type){
+        case "avatar":
+          var layer1 = await Canvas.loadImage(url)
+          context.drawImage(layer1, 1, 45, 64, 64)
+          layer2 = await Canvas.loadImage("https://cdn.discordapp.com/attachments/820584809612443659/863442209617608714/PEPEHUGGY.png")
+          break;
+        case "mc":
+          var layer1 = await Canvas.loadImage(url)
+          context.drawImage(layer1, 5, 18, 64, 144)
+          layer2 = await Canvas.loadImage("https://cdn.discordapp.com/attachments/820584809612443659/872145012996046898/PEPEHUGGY_SKIN.png")
+          break;
+        case "emoji":
+          context.font = '50px serif'
+          context.textAlign = "center"; 
+          context.fillText(url, 44, 88, 64)
+          layer2 = await Canvas.loadImage("https://cdn.discordapp.com/attachments/820584809612443659/863442209617608714/PEPEHUGGY.png")
+          break;
       }
       context.drawImage(layer2, 0, 0, canvas.width, canvas.height)
       var emojiurl = canvas.toDataURL();
