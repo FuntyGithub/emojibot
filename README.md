@@ -12,9 +12,9 @@ This is a simple discord bot.
 | !hug | Creates a "hug picture" with your profile picture. |
 | !hug <user#tag> | Creates a "hug picture" with someone else's profile picture. |
 | !hug <@user> | Creates a "hug picture" with someone else`s profile picture. |
-| !hug <userid> | Creates a "hug picture" with someone else`s profile picture. |
-| !hug <emoji> | Creates a "hug picture" with a emoji. |
-| !hug <url> | Creates a "hug picture" with a picture from a URL. |
+| !hug \<userid> | Creates a "hug picture" with someone else`s profile picture. |
+| !hug \<emoji> | Creates a "hug picture" with a emoji. |
+| !hug \<url> | Creates a "hug picture" with a picture from a URL. |
 | !hug <mc name> --mc | Creates a "hug picture" with a Minecraft skin. |
 | | |
 | --addemoji | If the hug-command includes ``--addemoji`` the picture will be uploaded as a server emoji. |
