@@ -9,6 +9,7 @@ This is a simple discord bot.
 | --- | --- |
 | !help | Shows a help message |
 | !bot | Shows informations about the bot. |
+| !rfact | Reply with a random fact. |
 | !hug | Creates a "hug picture" with your profile picture. |
 | !hug <user#tag> | Creates a "hug picture" with someone else's profile picture. |
 | !hug <@user> | Creates a "hug picture" with someone else`s profile picture. |
