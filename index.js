@@ -218,7 +218,7 @@ bot.on('message', async (message) =>{
       "fields": [
         {
           "name": "<:gear:872469198759133184>  __Bot__",
-          "value": "> ``!help`` -> Shows this message.\n \n> ``!bot`` -> Shows informations about the bot."
+          "value": "> ``!help`` -> Shows this message.\n \n> ``!bot`` -> Shows informations about the bot.\n \n> ``!rfact`` -> Reply with a random fact."
         },
         {
           "name": "\u200B",
