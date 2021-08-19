@@ -19,6 +19,30 @@ bot.on('message', async (message) =>{
           Help(message)
         }
       }
+      if(message.content.startsWith("!rfact")){
+        if(message.content.replace("!rfact ", "") === "de"){
+          var arg = "de"
+        }else{
+          var arg = "en"
+        }
+        try {
+          let fact = await (await fetch("https://uselessfacts.jsph.pl/random.json?language="+arg)).json()
+          const embed = {
+            "title": "**Random fact**",
+            "description": fact.text,
+            "color": "RANDOM",
+            "fields": [
+              {
+                "name": "Source",
+                "value": `[${fact.source}](${fact.source_url})`
+              },
+            ]
+          };
+            message.reply({embed})
+        } catch (error) {
+          if(error) throw error;
+        }
+      }
       if(message.content == "!bot" || message.content == "!invite"){
         let totalSeconds = (bot.uptime / 1000);
         let days = Math.floor(totalSeconds / 86400);
